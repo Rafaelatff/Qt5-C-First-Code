@@ -59,6 +59,52 @@ After that, just click 'run' button. We save the files and then we will have as 
 
 NOTE: I type the 'Hello World'. 'Line Edit' is an input field.
 
+## Coding
 
- 
+When we right click on the button and go to 'Go to slot...':
+
+![image](https://user-images.githubusercontent.com/58916022/223834174-d84007db-ba46-4e98-a04d-abe8912e2f3a.png)
+
+We can see the following options:
+
+![image](https://user-images.githubusercontent.com/58916022/223834511-6b4856be-37d5-478a-a221-a8f8261a82b8.png)
+
+We will choose, inside 'QAbstractButton' the option 'clicked()'. Then the following code will be created inside 'widget.cpp'.
+
+```c++
+void Widget::on_pushButton_clicked()
+{
+    
+}
+```
+
+Then we will include a library for debug and the code to show that the used clicked on button.
+
+```c++
+#include <QDebug>
+
+void Widget::on_pushButton_clicked(){
+    qDebug() << "User clicked on button";
+}
+```
+And as result, we can see the following when we click on the button:
+
+![image](https://user-images.githubusercontent.com/58916022/223836008-7b2ccd91-042b-4f6f-af2c-0468cb4e3d34.png)
+
+Let's now show a message box that appear when the button is clicked. For that, let's add a new library and it's code.
+
+```c++
+#include <QMessageBox>
+
+void Widget::on_pushButton_clicked(){
+    qDebug() << "User clicked on button";
+    // accessible anywhere in the code
+    QMessageBox::information(this, "Message","You clicked on that button",QMessageBox::Ok); 
+    
+}
+```
+
+And we will have as result:
+
+![image](https://user-images.githubusercontent.com/58916022/223838234-6a0c2af5-f842-4671-bd2e-35126a013754.png)
 
